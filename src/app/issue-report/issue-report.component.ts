@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {IssuesService} from "../issues.service";
 
 @Component({
@@ -16,10 +16,10 @@ export class IssueReportComponent implements OnInit {
 
   ngOnInit(): void {
     this.issueFrom = this.builder.group({
-      title:[''],
+      title:['', Validators.required],
       description:[''],
-      priority:[''],
-      type:['']
+      priority:['', Validators.required],
+      type:['', Validators.required]
     });
   }
 
